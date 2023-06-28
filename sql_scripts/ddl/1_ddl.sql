@@ -19,7 +19,6 @@ CREATE TABLE IF NOT EXISTS plan
     shop_id INTEGER NOT NULL,
     plan_cnt DECIMAL,
     plan_date DATE,
-    CONSTRAINT plan_pkey PRIMARY KEY (plan_id),
     CONSTRAINT product_id FOREIGN KEY (product_id) REFERENCES products (product_id) ON DELETE CASCADE,
     CONSTRAINT shop_id FOREIGN KEY (shop_id) REFERENCES shops (shop_id) ON DELETE CASCADE
 );
