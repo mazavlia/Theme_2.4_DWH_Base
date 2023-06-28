@@ -45,7 +45,7 @@
 ### 2. SQL-скрипт для заполения таблиц:
 Файл: [DML-script](sql_scripts/dml/2_dml.sql)
 
-### 3. SQL-запросник - скрипт с решением задач:
+### 3. SQL-скрипт витрины данных:
 Файл: [Data mart script](sql_scripts/3_data_mart.sql)
 
 ### 4. Файл Docker-compose:
