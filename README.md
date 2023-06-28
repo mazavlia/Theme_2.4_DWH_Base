@@ -46,7 +46,7 @@
 Файл: [DML-script](sql_scripts/dml/2_dml.sql)
 
 ### 3. SQL-запросник - скрипт с решением задач:
-Файл: [Queries-script](sql_scripts/3_data_mart.sql)
+Файл: [Data mart script](sql_scripts/3_data_mart.sql)
 
 ### 4. Файл Docker-compose:
 Файл: [Docker-compose](docker-compose.yml)
