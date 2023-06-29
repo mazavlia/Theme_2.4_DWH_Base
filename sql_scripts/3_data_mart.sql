@@ -19,16 +19,16 @@ WITH union_shops_tabl AS (SELECT * FROM shop_citilink
 SELECT DATE_PART('MONTH',  sale_date) AS sale_month,
 	   shop_name, 
 	   product_name, 
-	   SUM(sales_cnt)  sales_fact,
+	   SUM(sales_cnt) sales_fact,
 	   SUM(plan_cnt) sales_plan,
 	   ROUND(SUM(sales_cnt)::NUMERIC / SUM(plan_cnt), 2) "sales_fact/sales_plan",
-	   SUM(price * sales_cnt) income_fact, 
+	   SUM(price * sales_cnt) income_fact,
 	   SUM(price * plan_cnt) income_plan,
 	   ROUND((SUM(price * sales_cnt)::NUMERIC / SUM(price * plan_cnt)), 2) "income_fact/income_plan"
-FROM shops
-JOIN union_shops_tabl USING (shop_id)
-JOIN products USING (product_id)
-JOIN plan USING (product_id)
+FROM union_shops_tabl us
+JOIN shops sh ON us.shop_id = sh.shop_id
+JOIN products pr ON us.product_id = pr.product_id 
+JOIN plan p ON us.product_id = p.product_id AND us.shop_id = p.shop_id AND us.sale_date = p.plan_date 
 WHERE DATE_PART('MONTH',  sale_date) = 5
 GROUP BY sale_month, shop_name, product_name
 ORDER BY shop_name, product_name
